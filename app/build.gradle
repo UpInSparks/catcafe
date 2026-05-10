@@ -9,7 +9,7 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
     id 'java'
-    id 'com.diffplug.spotless' version "6.25.0"
+    id 'com.diffplug.spotless' version "7.0.4"
 }
 
 java {
@@ -53,6 +53,6 @@ spotless {
     java {
         // AOSP-Style = 4 Leerzeichen Einrückung (statt default 2)
         // reflowLongStrings() = lange Strings umbrechen
-        googleJavaFormat("1.22.0").aosp().reflowLongStrings()
+        googleJavaFormat("1.25.2").aosp().reflowLongStrings()
     }
 }
