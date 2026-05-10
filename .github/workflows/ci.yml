@@ -8,7 +8,7 @@ on:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
+  GRADLE_OPTS: "--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"
 
 jobs:
   build:
@@ -18,20 +18,17 @@ jobs:
       - name: Repository auschecken
         uses: actions/checkout@v4
 
-      - name: Java 25 einrichten
+      - name: Java 21 einrichten
         uses: actions/setup-java@v4
         with:
-          java-version: '25'
+          java-version: '21'
           distribution: 'temurin'
 
-      # compile
-      - name: Kompilieren
+      - name: Projekt bauen (kompilieren)
         run: ./gradlew compileJava
 
-      # junit
-      - name: JUnit-Tests
+      - name: JUnit-Tests ausführen
         run: ./gradlew test
 
-      # format
-      - name: Formatierung
+      - name: Formatierung prüfen (Spotless)
         run: ./gradlew spotlessCheck
