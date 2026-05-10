@@ -49,10 +49,10 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+
+
 spotless {
     java {
-        // AOSP-Style = 4 Leerzeichen Einrückung (statt default 2)
-        // reflowLongStrings() = lange Strings umbrechen
         googleJavaFormat("1.25.2").aosp().reflowLongStrings()
     }
 }

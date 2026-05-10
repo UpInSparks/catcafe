@@ -18,7 +18,7 @@ class CatCafeTest {
         luna = new FelineOverLord("Luna", 5);
     }
 
-    //###################################################################//
+    // ###################################################################//
     @Test
     // leeres Cafe, Anzahl an Katzen = 0
     void getCatCount_emptyCafe_returnsZero() {
@@ -30,7 +30,7 @@ class CatCafeTest {
     }
 
     @Test
-        // eine Katze hinzufügen, Anzahl an Katzen = 1
+    // eine Katze hinzufügen, Anzahl an Katzen = 1
     void addCat_oneCat_countIsOne() {
         // given
         // when
@@ -40,7 +40,7 @@ class CatCafeTest {
     }
 
     @Test
-        // zwei Katzen hinzufügen(gleichzeitig), Anzahl an Katzen = 2
+    // zwei Katzen hinzufügen(gleichzeitig), Anzahl an Katzen = 2
     void addCat_multipleCats_countMatchesNumberOfCatsAdded() {
         // given
         // when
@@ -51,7 +51,7 @@ class CatCafeTest {
     }
 
     @Test
-        // Katze Null hinzufügen, Nullpointer
+    // Katze Null hinzufügen, Nullpointer
     void addCat_nullCat_throwsNullPointerException() {
         // given
         // when + then
@@ -59,7 +59,7 @@ class CatCafeTest {
     }
 
     // ##########################################################
-// Katzen beim Namen
+    // Katzen beim Namen
     @Test
     // 2 Katzen im Cafe, ist Mimi da, name existiert
     void getCatByName_existingName_returnsCorrectCat() {
@@ -73,7 +73,7 @@ class CatCafeTest {
     }
 
     @Test
-        // Mimi im cafe, ist unbekannte katze da, null
+    // Mimi im cafe, ist unbekannte katze da, null
     void getCatByName_nonExistingName_returnsNull() {
         // given
         cafe.addCat(mimi);
@@ -84,7 +84,7 @@ class CatCafeTest {
     }
 
     @Test
-        // leeres Cafe, ist mimi da, null
+    // leeres Cafe, ist mimi da, null
     void getCatByName_emptyCafe_returnsNull() {
         // given
         // when
@@ -94,7 +94,7 @@ class CatCafeTest {
     }
 
     // ################################################################
-// Katze bei Gewicht finden
+    // Katze bei Gewicht finden
     @Test
     // 2 Katzen im Cafe, ist eine Katze da die 3 oder 4 wiegt, ja mimi
     void getCatByWeight_catWithinRange_returnsCorrectCat() {
@@ -108,7 +108,7 @@ class CatCafeTest {
     }
 
     @Test
-        // 2 Katzen im cafe, ist eine Katze mit Hohem gewicht da, Keine KAtze im Bereich
+    // 2 Katzen im cafe, ist eine Katze mit Hohem gewicht da, Keine KAtze im Bereich
     void getCatByWeight_noCatInRange_returnsNull() {
         // given
         cafe.addCat(mimi); // Gewicht 3
@@ -120,7 +120,7 @@ class CatCafeTest {
     }
 
     @Test
-        // mimi im Cafe, gibt es eine Katze mit negativ gewicht, nein
+    // mimi im Cafe, gibt es eine Katze mit negativ gewicht, nein
     void getCatByWeight_negativeMinWeight_returnsNull() {
         // given
         cafe.addCat(mimi);
@@ -130,4 +130,3 @@ class CatCafeTest {
         assertNull(result);
     }
 }
-
