@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Java 21 einrichten
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      # compile
+      - name: Kompilieren
+        run: ./gradlew compileJava
+
+      # junit
+      - name: JUnit-Tests
+        run: ./gradlew test
+
+      # format
+      - name: Formatierung
+        run: ./gradlew spotlessCheck
